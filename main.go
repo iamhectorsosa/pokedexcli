@@ -1,7 +1,16 @@
 package main
 
-import "fmt"
+import "github.com/iamhectorsosa/pokedexcli/internal/pokeapi"
+
+type config struct {
+	pokeapiClient           pokeapi.Client
+	nextLocationAreaURL     *string
+	previousLocationAreaURL *string
+}
 
 func main() {
-	fmt.Println("Hello world")
+	cfg := config{
+		pokeapiClient: pokeapi.NewClient(),
+	}
+	startRepl(&cfg)
 }
